@@ -3,11 +3,11 @@ import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 
 type TFunctionalSectionProps = {
-  createDogIsVisible: (input: boolean) => void;
+  dogFormIsVisible: (input: boolean) => void;
   children: ReactNode;
 };
 export const FunctionalSection = ({
-  createDogIsVisible,
+  dogFormIsVisible,
   children,
 }: TFunctionalSectionProps) => {
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
@@ -32,7 +32,7 @@ export const FunctionalSection = ({
             className={`selector`}
             onClick={() => {
               setIsFormVisible(!isFormVisible);
-              createDogIsVisible(!isFormVisible);
+              dogFormIsVisible(!isFormVisible);
             }}
           >
             create dog

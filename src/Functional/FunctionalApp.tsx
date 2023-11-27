@@ -7,15 +7,24 @@ import { Dog } from "../types";
 
 export function FunctionalApp() {
   const [dogFormIsVisible, setDogFormIsVisible] = useState<boolean>(false);
+  const [dogs, setDogs] = useState<Dog[]>([]);
+  useEffect(() => {
+    Requests.getAllDogs().then((dogs) => {
+      return setDogs(dogs);
+    });
+  }, []);
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
       <header>
         <h1>pup-e-picker (Functional)</h1>
       </header>
-      <FunctionalSection createDogIsVisible={setDogFormIsVisible}>
-        {dogFormIsVisible ? <FunctionalCreateDogForm /> : <FunctionalDogs />}
+      <FunctionalSection dogFormIsVisible={setDogFormIsVisible}>
+        {dogFormIsVisible ? (
+          <FunctionalCreateDogForm />
+        ) : (
+          <FunctionalDogs dogs={dogs} />
+        )}
       </FunctionalSection>
-      {/*FunctionalCreateDogForm should be conditionalally rendered*/}
     </div>
   );
 }

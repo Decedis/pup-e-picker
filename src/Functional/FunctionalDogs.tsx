@@ -6,14 +6,7 @@ import { Requests } from "../api";
 
 // Right now these dogs are constant, but in reality we should be getting these from our server
 
-export const FunctionalDogs = (): JSX.Element => {
-  const [dogs, setDogs] = useState<Dog[]>([]);
-  useEffect(() => {
-    Requests.getAllDogs().then((dogs) => {
-      return setDogs(dogs);
-    });
-  }, []);
-
+export const FunctionalDogs = ({ dogs }: { dogs: Dog[] }): JSX.Element => {
   return dogs.length > 0 ? (
     <>
       {dogs.map((dog) => {
