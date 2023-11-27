@@ -6,11 +6,18 @@ import { Requests } from "../api";
 import { Dog } from "../types";
 
 export function FunctionalApp() {
-  const [dogFormIsVisible, setDogFormIsVisible] = useState<boolean>(false);
-  const [dogs, setDogs] = useState<Dog[]>([]);
+  const [isActive, setIsActive] = useState<
+    "favorited" | "unfavorited" | "create" | "all"
+  >("all");
+  const [dogData, setDogData] = useState<Dog[]>([]);
+  const favoritedDogs = dogData.filter((dog) => dog.isFavorite);
+  const notFavoritedDogs = dogData.filter((dog) => !dog.isFavorite);
+
+  console.log("isActive", isActive);
+
   useEffect(() => {
-    Requests.getAllDogs().then((dogs) => {
-      return setDogs(dogs);
+    Requests.getAllDogs().then((dogData) => {
+      return setDogData(dogData);
     });
   }, []);
   return (
@@ -18,11 +25,19 @@ export function FunctionalApp() {
       <header>
         <h1>pup-e-picker (Functional)</h1>
       </header>
-      <FunctionalSection dogFormIsVisible={setDogFormIsVisible}>
-        {dogFormIsVisible ? (
+      <FunctionalSection
+        favoritedDogs={favoritedDogs}
+        notFavoritedDogs={notFavoritedDogs}
+        handleActive={setIsActive}
+      >
+        {isActive === "favorited" ? (
+          <FunctionalDogs dogs={favoritedDogs} />
+        ) : isActive === "unfavorited" ? (
+          <FunctionalDogs dogs={notFavoritedDogs} />
+        ) : isActive === "create" ? (
           <FunctionalCreateDogForm />
         ) : (
-          <FunctionalDogs dogs={dogs} />
+          <FunctionalDogs dogs={dogData} />
         )}
       </FunctionalSection>
     </div>

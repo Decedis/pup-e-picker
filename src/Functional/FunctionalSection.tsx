@@ -1,16 +1,28 @@
 // you can use this type for react children if you so choose
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Dog } from "../types";
 
 type TFunctionalSectionProps = {
-  dogFormIsVisible: (input: boolean) => void;
+  favoritedDogs: Dog[];
+  notFavoritedDogs: Dog[];
+  //dogFormIsVisible: (input: boolean) => void;
+  handleActive: (input: "favorited" | "unfavorited" | "create" | "all") => void;
   children: ReactNode;
 };
 export const FunctionalSection = ({
-  dogFormIsVisible,
+  favoritedDogs,
+  notFavoritedDogs,
+  handleActive,
   children,
 }: TFunctionalSectionProps) => {
-  const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<
+    "favorited" | "unfavorited" | "create" | "all"
+  >("all");
+
+  useEffect(() => {
+    handleActive(isActive);
+  }, [isActive, handleActive]);
   return (
     <section id="main-section">
       <div className="container-header">
@@ -20,19 +32,34 @@ export const FunctionalSection = ({
         </Link>
         <div className="selectors">
           {/* This should display the favorited count */}
-          <div className={`selector active`} onClick={() => {}}>
-            favorited ( 12 )
+          <div
+            className={`selector active`}
+            onClick={() => {
+              setIsActive((lastVal) =>
+                lastVal === "favorited" ? "all" : "favorited"
+              );
+            }}
+          >
+            favorited ( {favoritedDogs.length} )
           </div>
 
           {/* This should display the unfavorited count */}
-          <div className={`selector`} onClick={() => {}}>
-            unfavorited ( 25 )
+          <div
+            className={`selector`}
+            onClick={() => {
+              setIsActive((lastVal) =>
+                lastVal === "unfavorited" ? "all" : "unfavorited"
+              );
+            }}
+          >
+            unfavorited ( {notFavoritedDogs.length} )
           </div>
           <div
             className={`selector`}
             onClick={() => {
-              setIsFormVisible(!isFormVisible);
-              dogFormIsVisible(!isFormVisible);
+              setIsActive((lastVal) =>
+                lastVal === "create" ? "all" : "create"
+              );
             }}
           >
             create dog
