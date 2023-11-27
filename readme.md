@@ -22,7 +22,7 @@ In order to complete this assignment, a student should be able to...
 - set up application state correctly
 - use loading states to prevent errors and make user experience better
 - use `useEffect` to trigger code when a component mounts in a functional component
-- use `componentDidMount` to trigger code when a component mounts in a class component
+- use `componentDidMount` to trigger code when a component mounts in a _class component_
 - use a controlled form to submit data to the server
 - use `children` to create a Layout Component
 - use `react-hot-toast` to create toast notifications
