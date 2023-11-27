@@ -6,15 +6,15 @@ import { Requests } from "../api";
 import { Dog } from "../types";
 
 export function FunctionalApp() {
+  const [dogFormIsVisible, setDogFormIsVisible] = useState<boolean>(false);
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
       <header>
         <h1>pup-e-picker (Functional)</h1>
       </header>
-      <FunctionalSection>
-        <FunctionalDogs />
+      <FunctionalSection createDogIsVisible={setDogFormIsVisible}>
+        {dogFormIsVisible ? <FunctionalCreateDogForm /> : <FunctionalDogs />}
       </FunctionalSection>
-      <FunctionalCreateDogForm />
       {/*FunctionalCreateDogForm should be conditionalally rendered*/}
     </div>
   );

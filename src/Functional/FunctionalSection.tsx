@@ -1,8 +1,16 @@
 // you can use this type for react children if you so choose
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 
-export const FunctionalSection = ({ children }: { children: ReactNode }) => {
+type TFunctionalSectionProps = {
+  createDogIsVisible: (input: boolean) => void;
+  children: ReactNode;
+};
+export const FunctionalSection = ({
+  createDogIsVisible,
+  children,
+}: TFunctionalSectionProps) => {
+  const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
   return (
     <section id="main-section">
       <div className="container-header">
@@ -20,7 +28,13 @@ export const FunctionalSection = ({ children }: { children: ReactNode }) => {
           <div className={`selector`} onClick={() => {}}>
             unfavorited ( 25 )
           </div>
-          <div className={`selector`} onClick={() => {}}>
+          <div
+            className={`selector`}
+            onClick={() => {
+              setIsFormVisible(!isFormVisible);
+              createDogIsVisible(!isFormVisible);
+            }}
+          >
             create dog
           </div>
         </div>
