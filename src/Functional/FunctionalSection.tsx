@@ -6,7 +6,6 @@ import { Dog } from "../types";
 type TFunctionalSectionProps = {
   favoritedDogs: Dog[];
   notFavoritedDogs: Dog[];
-  //dogFormIsVisible: (input: boolean) => void;
   handleActive: (input: "favorited" | "unfavorited" | "create" | "all") => void;
   children: ReactNode;
 };
@@ -23,6 +22,10 @@ export const FunctionalSection = ({
   useEffect(() => {
     handleActive(isActive);
   }, [isActive, handleActive]);
+
+  const activeStyle = (target: "favorited" | "unfavorited" | "create") => {
+    return isActive === target ? `selector active` : `selector`;
+  };
   return (
     <section id="main-section">
       <div className="container-header">
@@ -33,7 +36,7 @@ export const FunctionalSection = ({
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={`selector active`}
+            className={activeStyle("favorited")}
             onClick={() => {
               setIsActive((lastVal) =>
                 lastVal === "favorited" ? "all" : "favorited"
@@ -45,7 +48,7 @@ export const FunctionalSection = ({
 
           {/* This should display the unfavorited count */}
           <div
-            className={`selector`}
+            className={activeStyle("unfavorited")}
             onClick={() => {
               setIsActive((lastVal) =>
                 lastVal === "unfavorited" ? "all" : "unfavorited"
@@ -55,7 +58,7 @@ export const FunctionalSection = ({
             unfavorited ( {notFavoritedDogs.length} )
           </div>
           <div
-            className={`selector`}
+            className={activeStyle("create")}
             onClick={() => {
               setIsActive((lastVal) =>
                 lastVal === "create" ? "all" : "create"
