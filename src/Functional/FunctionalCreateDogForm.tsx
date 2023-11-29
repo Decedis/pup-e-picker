@@ -1,24 +1,70 @@
 import { dogPictures } from "../dog-pictures";
+import { Requests } from "../api";
+import { ReactEventHandler, useState } from "react";
+import { Dog } from "../types";
 
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
 export const FunctionalCreateDogForm = () => {
+  //create dog state
+  const [newDog, setNewDog] = useState<Omit<Dog, "id" | "isFavorite">>({
+    name: "",
+    description: "",
+    image: "",
+  });
+
+  //form value and form onChange to reflect the "dog" values.
+  //disable form until response from server is made, or until refresh.
+  console.log("newDog: ", newDog);
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
+        Requests.postDog(newDog);
+        Requests.getAllDogs();
+        setNewDog({
+          name: "",
+          description: "",
+          image: "",
+        });
       }}
     >
       <h4>Create a New Dog</h4>
       <label htmlFor="name">Dog Name</label>
-      <input type="text" disabled={false} />
+      <input
+        type="text"
+        disabled={false}
+        value={newDog.name}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setNewDog({
+            ...newDog,
+            name: e.target.value,
+          })
+        }
+      />
       <label htmlFor="description">Dog Description</label>
-      <textarea name="" id="" cols={80} rows={10} disabled={false}></textarea>
+      <textarea
+        name=""
+        id=""
+        cols={80}
+        rows={10}
+        disabled={false}
+        value={newDog.description}
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+          setNewDog({ ...newDog, description: e.target.value })
+        }
+      ></textarea>
       <label htmlFor="picture">Select an Image</label>
-      <select id="">
+      <select
+        id=""
+        value={newDog.image}
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+          setNewDog({ ...newDog, image: e.target.value })
+        }
+      >
         {Object.entries(dogPictures).map(([label, pictureValue]) => {
           return (
             <option value={pictureValue} key={pictureValue}>

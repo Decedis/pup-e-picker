@@ -139,6 +139,12 @@
       "description": "musty Tools Monahan gadzooks pro Practical West Adaptive",
       "isFavorite": false,
       "id": 19
+    },
+    {
+      "name": "Bernard",
+      "description": "Brown and a little dumb",
+      "image": "/assets/boxer.jpeg",
+      "id": 20
     }
   ]
 }
