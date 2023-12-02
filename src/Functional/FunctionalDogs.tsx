@@ -4,9 +4,13 @@ import { dogPictures } from "../dog-pictures";
 import { Dog } from "../types";
 import { Requests } from "../api";
 
-// Right now these dogs are constant, but in reality we should be getting these from our server
-
-export const FunctionalDogs = ({ dogs }: { dogs: Dog[] }): JSX.Element => {
+export const FunctionalDogs = ({
+  dogs,
+  handleDogs,
+}: {
+  dogs: Dog[];
+  handleDogs: (input: Dog[]) => void;
+}): JSX.Element => {
   return dogs.length > 0 ? (
     <>
       {dogs.map((dog) => {
@@ -21,13 +25,22 @@ export const FunctionalDogs = ({ dogs }: { dogs: Dog[] }): JSX.Element => {
             }}
             key={dog.id}
             onTrashIconClick={() => {
-              alert("clicked trash");
+              Requests.deleteDog(dog.id).catch((err) => console.log(err));
+              handleDogs(dogs.filter((dog) => !dog.id));
+              //test dog.filter and return value. Use new variable.
             }}
             onHeartClick={() => {
               alert("clicked heart");
+              Requests.updateDog(dog.id, false)
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err));
             }}
             onEmptyHeartClick={() => {
               alert("clicked empty heart");
+              //add favorite
+              Requests.updateDog(dog.id, true)
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err));
             }}
             isLoading={false}
           />

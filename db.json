@@ -8,34 +8,6 @@
       "id": 0
     },
     {
-      "name": "Vincenza",
-      "image": "/assets/chihuahua.avif",
-      "description": "navigating Bigender all Classical Island Elegant Northeast",
-      "isFavorite": false,
-      "id": 1
-    },
-    {
-      "name": "Maximillian",
-      "image": "/assets/dalmation.png",
-      "description": "Music knobby candela Bicycle Arab",
-      "isFavorite": false,
-      "id": 2
-    },
-    {
-      "name": "Anabelle",
-      "image": "/assets/dalmation.png",
-      "description": "South Sedan API implementation fuchsia Integration South Convertible",
-      "isFavorite": false,
-      "id": 3
-    },
-    {
-      "name": "Thea",
-      "image": "/assets/dalmation.png",
-      "description": "Administrator Chair Hybrid pink laboriosam",
-      "isFavorite": false,
-      "id": 4
-    },
-    {
       "name": "Micah",
       "image": "/assets/corgi.png",
       "description": "Sleek Sausages Central deposit application Centralized remnant",
@@ -46,14 +18,14 @@
       "name": "Lonnie",
       "image": "/assets/chihuahua.avif",
       "description": "among XML Fiji settlement Markets female never",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 6
     },
     {
       "name": "Rosalind",
       "image": "/assets/chihuahua.avif",
       "description": "Hat Soft West astride substitute",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 7
     },
     {
@@ -67,14 +39,14 @@
       "name": "Andy",
       "image": "/assets/boxer.png",
       "description": "Gasoline now transmit black BMX Cuban Oklahoma ubiquitous",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 9
     },
     {
       "name": "Jerrod",
       "image": "/assets/boxer.png",
       "description": "fooey merrily Representative gown Sausages",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 10
     },
     {
@@ -83,13 +55,6 @@
       "description": "haptic 1080p Pop Gasoline Bedfordshire Lawrencium Jewelery",
       "isFavorite": false,
       "id": 11
-    },
-    {
-      "name": "Valentine",
-      "image": "/assets/blue-heeler.png",
-      "description": "Circles Handcrafted Supervisor quantifying pfft Extended East",
-      "isFavorite": false,
-      "id": 12
     },
     {
       "name": "Hilma",
@@ -116,7 +81,7 @@
       "name": "Kobe",
       "image": "/assets/boxer.png",
       "description": "ea female female invoice Pizza Folk Functionality workforce",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 16
     },
     {
@@ -145,6 +110,279 @@
       "description": "Brown and a little dumb",
       "image": "/assets/boxer.jpeg",
       "id": 20
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 22
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 24
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 27
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 30
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 33
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 36
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 37
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 40
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 41
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 42
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 43
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 45
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 47
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 48
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 49
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 51
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 52
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 53
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 56
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 59
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 60
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 62
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 63
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 64
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 65
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 66
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 67
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 68
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 69
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 70
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 72
+    },
+    {
+      "name": "test",
+      "description": "just a testing dog",
+      "image": "unsure.jpg",
+      "isFavorite": false,
+      "id": 74
+    },
+    {
+      "name": "no",
+      "description": "no",
+      "image": "/assets/corgi.png",
+      "isFavorite": false,
+      "id": 84
+    },
+    {
+      "name": "Dog",
+      "description": "dog",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": false,
+      "id": 87
+    },
+    {
+      "name": "wont work",
+      "description": "euasoheulraoechusnth",
+      "image": "/assets/corgi.png",
+      "isFavorite": false,
+      "id": 89
+    },
+    {
+      "name": "lrchcrhs",
+      "description": "snchnhtxditkcgd",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": false,
+      "id": 90
+    },
+    {
+      "name": "as,co;uhaoesnthue",
+      "description": "usanoehusaoenu",
+      "image": "/assets/chihuahua.avif",
+      "isFavorite": false,
+      "id": 99
+    },
+    {
+      "name": "ngdc",
+      "description": "tdsrcdh",
+      "image": "/assets/corgi.png",
+      "isFavorite": false,
+      "id": 100
+    },
+    {
+      "name": "This dog",
+      "description": "what a dog",
+      "image": "/assets/cowardly.png",
+      "isFavorite": false,
+      "id": 101
     }
   ]
 }

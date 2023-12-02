@@ -1,34 +1,44 @@
 import { dogPictures } from "../dog-pictures";
 import { Requests } from "../api";
-import { ReactEventHandler, useState } from "react";
+import { useState } from "react";
 import { Dog } from "../types";
+import toast from "react-hot-toast";
 
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
 export const FunctionalCreateDogForm = () => {
   //create dog state
-  const [newDog, setNewDog] = useState<Omit<Dog, "id" | "isFavorite">>({
+  const [newDog, setNewDog] = useState<Omit<Dog, "id">>({
     name: "",
     description: "",
     image: "",
+    isFavorite: false,
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   //form value and form onChange to reflect the "dog" values.
+
   //disable form until response from server is made, or until refresh.
-  console.log("newDog: ", newDog);
+
+  //on submit, watch for server response
+  //while there is no response, setIsLoading = true
+  //upon a response from the server, setIsLoading = false
+  //TODO these need to be set within the promise function.
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
-        Requests.postDog(newDog);
-        Requests.getAllDogs();
+        setIsLoading(true);
+        Requests.postDog(newDog).finally(() => Requests.getAllDogs());
+        setIsLoading(false);
         setNewDog({
           name: "",
           description: "",
           image: "",
+          isFavorite: false,
         });
       }}
     >
@@ -36,7 +46,7 @@ export const FunctionalCreateDogForm = () => {
       <label htmlFor="name">Dog Name</label>
       <input
         type="text"
-        disabled={false}
+        disabled={isLoading}
         value={newDog.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setNewDog({
@@ -51,7 +61,7 @@ export const FunctionalCreateDogForm = () => {
         id=""
         cols={80}
         rows={10}
-        disabled={false}
+        disabled={isLoading}
         value={newDog.description}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           setNewDog({ ...newDog, description: e.target.value })
@@ -67,13 +77,17 @@ export const FunctionalCreateDogForm = () => {
       >
         {Object.entries(dogPictures).map(([label, pictureValue]) => {
           return (
-            <option value={pictureValue} key={pictureValue}>
+            <option
+              value={pictureValue}
+              key={pictureValue}
+              defaultValue={defaultSelectedImage}
+            >
               {label}
             </option>
           );
         })}
       </select>
-      <input type="submit" />
+      <input type="submit" disabled={isLoading} />
     </form>
   );
 };

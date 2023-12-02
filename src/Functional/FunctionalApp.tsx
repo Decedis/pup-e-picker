@@ -13,13 +13,13 @@ export function FunctionalApp() {
   const favoritedDogs = dogData.filter((dog) => dog.isFavorite);
   const notFavoritedDogs = dogData.filter((dog) => !dog.isFavorite);
 
-  console.log("isActive", isActive);
-
   useEffect(() => {
-    Requests.getAllDogs().then((dogData) => {
-      return setDogData(dogData);
+    Requests.getAllDogs().then((res) => {
+      return setDogData(res);
     });
-  }, []);
+    // console.log("dogData: ", dogData);
+  }, [dogData.length]);
+
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
       <header>
@@ -31,13 +31,13 @@ export function FunctionalApp() {
         handleActive={setIsActive}
       >
         {isActive === "favorited" ? (
-          <FunctionalDogs dogs={favoritedDogs} />
+          <FunctionalDogs dogs={favoritedDogs} handleDogs={setDogData} />
         ) : isActive === "unfavorited" ? (
-          <FunctionalDogs dogs={notFavoritedDogs} />
+          <FunctionalDogs dogs={notFavoritedDogs} handleDogs={setDogData} />
         ) : isActive === "create" ? (
           <FunctionalCreateDogForm />
         ) : (
-          <FunctionalDogs dogs={dogData} />
+          <FunctionalDogs dogs={dogData} handleDogs={setDogData} />
         )}
       </FunctionalSection>
     </div>

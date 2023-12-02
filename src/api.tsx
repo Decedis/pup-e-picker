@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { Dog } from "./types";
 
 export const baseUrl = "http://localhost:3000";
@@ -17,13 +18,38 @@ export const Requests = {
       },
       body: JSON.stringify(dog),
     });
+    toast("Dog has been added");
     return await res.json();
   },
 
   // should delete a dog from the database
-  deleteDog: () => {},
+  deleteDog: (id: number) => {
+    return fetch(baseUrl + "/dogs/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  },
 
-  updateDog: () => {},
+  updateDog: (id: number, newIsFav: boolean) => {
+    //function to update "fav" value of dogs
+    return fetch(baseUrl + "/dogs/" + id, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        isFavorite: newIsFav, //the error is here, add a parameter
+      }),
+    });
+    //TODO bug: can unFav, but not reFav
+    //Page does not rerender
+    //Rerender needs to be triggered automatically through local data
+    //Local data is blocking future updates through local static data
+  },
 
   // Just a dummy function for use in the playground
   dummyFunction: () => {
