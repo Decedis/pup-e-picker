@@ -12,19 +12,11 @@ export const FunctionalCreateDogForm = () => {
   const [newDog, setNewDog] = useState<Omit<Dog, "id">>({
     name: "",
     description: "",
-    image: "",
+    image: defaultSelectedImage,
     isFavorite: false,
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  //form value and form onChange to reflect the "dog" values.
-
-  //disable form until response from server is made, or until refresh.
-
-  //on submit, watch for server response
-  //while there is no response, setIsLoading = true
-  //upon a response from the server, setIsLoading = false
-  //TODO these need to be set within the promise function.
   return (
     <form
       action=""
@@ -32,7 +24,7 @@ export const FunctionalCreateDogForm = () => {
       onSubmit={(e) => {
         e.preventDefault();
         setIsLoading(true);
-        Requests.postDog(newDog).finally(() => Requests.getAllDogs());
+        Requests.postDog(newDog);
         setIsLoading(false);
         setNewDog({
           name: "",
@@ -75,13 +67,9 @@ export const FunctionalCreateDogForm = () => {
           setNewDog({ ...newDog, image: e.target.value })
         }
       >
-        {Object.entries(dogPictures).map(([label, pictureValue]) => {
+        {Object.entries(dogPictures).map(([label, pictureValue], index) => {
           return (
-            <option
-              value={pictureValue}
-              key={pictureValue}
-              defaultValue={defaultSelectedImage}
-            >
+            <option value={pictureValue} key={pictureValue}>
               {label}
             </option>
           );

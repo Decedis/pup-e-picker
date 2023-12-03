@@ -46,21 +46,21 @@
       "name": "Jerrod",
       "image": "/assets/boxer.png",
       "description": "fooey merrily Representative gown Sausages",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 10
     },
     {
       "name": "Orrin",
       "image": "/assets/blue-heeler.png",
       "description": "haptic 1080p Pop Gasoline Bedfordshire Lawrencium Jewelery",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 11
     },
     {
       "name": "Hilma",
       "image": "/assets/blue-heeler.png",
       "description": "Pizza SAS Polygender track Engineer Bronze Alphonso navigate",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 13
     },
     {
@@ -74,35 +74,35 @@
       "name": "Elna",
       "image": "/assets/dalmation.png",
       "description": "Zambia Colorado Facilitator Sedan Electric Southeast calculate Neutrois",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 15
     },
     {
       "name": "Kobe",
       "image": "/assets/boxer.png",
       "description": "ea female female invoice Pizza Folk Functionality workforce",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 16
     },
     {
       "name": "Maryjane",
       "image": "/assets/chihuahua.avif",
       "description": "Metal withdrawal Planner Automotive SUV",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 17
     },
     {
       "name": "Preston",
       "image": "/assets/cowardly.png",
       "description": "Manors Southeast content Account prompt Funk Polestar",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 18
     },
     {
       "name": "Rebekah",
       "image": "/assets/cowardly.png",
       "description": "musty Tools Monahan gadzooks pro Practical West Adaptive",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 19
     },
     {
@@ -110,230 +110,6 @@
       "description": "Brown and a little dumb",
       "image": "/assets/boxer.jpeg",
       "id": 20
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 22
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 24
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 27
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 30
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 33
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 36
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 37
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 40
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 41
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 42
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 43
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 45
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 47
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 48
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 49
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 51
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 52
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 53
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 56
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 59
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 60
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 62
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 63
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 64
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 65
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 66
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 67
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 68
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 69
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 70
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 72
-    },
-    {
-      "name": "test",
-      "description": "just a testing dog",
-      "image": "unsure.jpg",
-      "isFavorite": false,
-      "id": 74
     },
     {
       "name": "no",
@@ -383,6 +159,27 @@
       "image": "/assets/cowardly.png",
       "isFavorite": false,
       "id": 101
+    },
+    {
+      "name": "Another Dog",
+      "description": "Another test",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": true,
+      "id": 103
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 104
+    },
+    {
+      "name": "b",
+      "description": "b",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": false,
+      "id": 116
     }
   ]
 }

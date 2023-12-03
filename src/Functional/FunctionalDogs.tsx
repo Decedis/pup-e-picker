@@ -3,6 +3,7 @@ import { DogCard } from "../Shared/DogCard";
 import { dogPictures } from "../dog-pictures";
 import { Dog } from "../types";
 import { Requests } from "../api";
+import toast from "react-hot-toast";
 
 export const FunctionalDogs = ({
   dogs,
@@ -26,18 +27,16 @@ export const FunctionalDogs = ({
             key={dog.id}
             onTrashIconClick={() => {
               Requests.deleteDog(dog.id).catch((err) => console.log(err));
-              handleDogs(dogs.filter((dog) => !dog.id));
-              //test dog.filter and return value. Use new variable.
+              handleDogs(dogs.filter((dog) => dog.id));
             }}
             onHeartClick={() => {
-              alert("clicked heart");
+              toast("Dog has been favorited");
               Requests.updateDog(dog.id, false)
                 .then((res) => console.log(res))
                 .catch((err) => console.log(err));
             }}
             onEmptyHeartClick={() => {
-              alert("clicked empty heart");
-              //add favorite
+              toast("Dog has been unfavorited");
               Requests.updateDog(dog.id, true)
                 .then((res) => console.log(res))
                 .catch((err) => console.log(err));

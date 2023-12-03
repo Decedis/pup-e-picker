@@ -10,6 +10,7 @@ export function FunctionalApp() {
     "favorited" | "unfavorited" | "create" | "all"
   >("all");
   const [dogData, setDogData] = useState<Dog[]>([]);
+
   const favoritedDogs = dogData.filter((dog) => dog.isFavorite);
   const notFavoritedDogs = dogData.filter((dog) => !dog.isFavorite);
 
@@ -17,8 +18,7 @@ export function FunctionalApp() {
     Requests.getAllDogs().then((res) => {
       return setDogData(res);
     });
-    // console.log("dogData: ", dogData);
-  }, [dogData.length]);
+  }, [dogData.length, favoritedDogs.length, notFavoritedDogs.length]);
 
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
