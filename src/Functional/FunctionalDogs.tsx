@@ -48,7 +48,6 @@ export const FunctionalDogs = ({
                 })
                 .catch((err) => console.log(err));
               handleDogs(dogs);
-              console.log("DOGS ARE HANDLED");
             }}
             onEmptyHeartClick={() => {
               toast("Dog has been unfavorited");
@@ -60,7 +59,6 @@ export const FunctionalDogs = ({
                 })
                 .catch((err) => console.log(err));
               handleDogs(dogs);
-              console.log("DOGS ARE HANDLED");
             }}
             isLoading={false}
           />
