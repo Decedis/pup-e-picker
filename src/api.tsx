@@ -42,7 +42,7 @@ export const Requests = {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        isFavorite: newIsFav, //the error is here, add a parameter
+        isFavorite: newIsFav,
       }),
     });
     //TODO bug: can unFav, but not reFav

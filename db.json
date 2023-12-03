@@ -39,28 +39,28 @@
       "name": "Andy",
       "image": "/assets/boxer.png",
       "description": "Gasoline now transmit black BMX Cuban Oklahoma ubiquitous",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 9
     },
     {
       "name": "Jerrod",
       "image": "/assets/boxer.png",
       "description": "fooey merrily Representative gown Sausages",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 10
     },
     {
       "name": "Orrin",
       "image": "/assets/blue-heeler.png",
       "description": "haptic 1080p Pop Gasoline Bedfordshire Lawrencium Jewelery",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 11
     },
     {
       "name": "Hilma",
       "image": "/assets/blue-heeler.png",
       "description": "Pizza SAS Polygender track Engineer Bronze Alphonso navigate",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 13
     },
     {
@@ -102,27 +102,28 @@
       "name": "Rebekah",
       "image": "/assets/cowardly.png",
       "description": "musty Tools Monahan gadzooks pro Practical West Adaptive",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 19
     },
     {
       "name": "Bernard",
       "description": "Brown and a little dumb",
       "image": "/assets/boxer.jpeg",
-      "id": 20
+      "id": 20,
+      "isFavorite": true
     },
     {
       "name": "no",
       "description": "no",
       "image": "/assets/corgi.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 84
     },
     {
       "name": "Dog",
       "description": "dog",
       "image": "/assets/boxer.jpeg",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 87
     },
     {
@@ -136,7 +137,7 @@
       "name": "lrchcrhs",
       "description": "snchnhtxditkcgd",
       "image": "/assets/boxer.jpeg",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 90
     },
     {
@@ -164,22 +165,15 @@
       "name": "Another Dog",
       "description": "Another test",
       "image": "/assets/boxer.jpeg",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 103
     },
     {
       "name": "test",
       "description": "test",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": true,
-      "id": 104
-    },
-    {
-      "name": "b",
-      "description": "b",
-      "image": "/assets/boxer.jpeg",
       "isFavorite": false,
-      "id": 116
+      "id": 104
     }
   ]
 }

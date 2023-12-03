@@ -12,6 +12,15 @@ export const FunctionalDogs = ({
   dogs: Dog[];
   handleDogs: (input: Dog[]) => void;
 }): JSX.Element => {
+  const dogMapping = (data: Dog): Dog[] =>
+    dogs.map((dog) => {
+      let index = dogs.indexOf(dog);
+      if (dogs[index].id === dog.id) {
+        return { ...dog, isFavorite: data.isFavorite };
+      }
+      return dog;
+    });
+
   return dogs.length > 0 ? (
     <>
       {dogs.map((dog) => {
@@ -32,14 +41,26 @@ export const FunctionalDogs = ({
             onHeartClick={() => {
               toast("Dog has been favorited");
               Requests.updateDog(dog.id, false)
-                .then((res) => console.log(res))
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                  handleDogs(dogMapping(data));
+                })
                 .catch((err) => console.log(err));
+              handleDogs(dogs);
+              console.log("DOGS ARE HANDLED");
             }}
             onEmptyHeartClick={() => {
               toast("Dog has been unfavorited");
               Requests.updateDog(dog.id, true)
-                .then((res) => console.log(res))
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                  handleDogs(dogMapping(data));
+                })
                 .catch((err) => console.log(err));
+              handleDogs(dogs);
+              console.log("DOGS ARE HANDLED");
             }}
             isLoading={false}
           />
