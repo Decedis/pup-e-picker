@@ -18,7 +18,6 @@ export const Requests = {
       },
       body: JSON.stringify(dog),
     });
-    toast("Dog has been added");
     return await res.json();
   },
 

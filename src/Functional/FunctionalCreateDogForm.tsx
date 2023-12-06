@@ -7,7 +7,11 @@ import toast from "react-hot-toast";
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
-export const FunctionalCreateDogForm = () => {
+export const FunctionalCreateDogForm = ({
+  handleNewDog,
+}: {
+  handleNewDog: (input: Dog[]) => void;
+}) => {
   //create dog state
   const [newDog, setNewDog] = useState<Omit<Dog, "id">>({
     name: "",
@@ -25,7 +29,11 @@ export const FunctionalCreateDogForm = () => {
         e.preventDefault();
         setIsLoading(true);
         Requests.postDog(newDog);
-        setIsLoading(false);
+        Requests.getAllDogs().then((res) => {
+          setIsLoading(false);
+          return handleNewDog(res);
+        });
+        toast("Dog has been created");
         setNewDog({
           name: "",
           description: "",
@@ -67,7 +75,7 @@ export const FunctionalCreateDogForm = () => {
           setNewDog({ ...newDog, image: e.target.value })
         }
       >
-        {Object.entries(dogPictures).map(([label, pictureValue], index) => {
+        {Object.entries(dogPictures).map(([label, pictureValue]) => {
           return (
             <option value={pictureValue} key={pictureValue}>
               {label}

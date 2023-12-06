@@ -35,7 +35,7 @@ export function FunctionalApp() {
         ) : isActive === "unfavorited" ? (
           <FunctionalDogs dogs={notFavoritedDogs} handleDogs={setDogData} />
         ) : isActive === "create" ? (
-          <FunctionalCreateDogForm />
+          <FunctionalCreateDogForm handleNewDog={setDogData} />
         ) : (
           <FunctionalDogs dogs={dogData} handleDogs={setDogData} />
         )}
