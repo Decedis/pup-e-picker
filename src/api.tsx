@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { Dog } from "./types";
 
 export const baseUrl = "http://localhost:3000";

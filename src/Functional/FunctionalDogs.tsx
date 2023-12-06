@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { DogCard } from "../Shared/DogCard";
-import { dogPictures } from "../dog-pictures";
 import { Dog } from "../types";
 import { Requests } from "../api";
 import toast from "react-hot-toast";
