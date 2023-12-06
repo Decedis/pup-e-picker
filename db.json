@@ -18,7 +18,7 @@
       "name": "Lonnie",
       "image": "/assets/chihuahua.avif",
       "description": "among XML Fiji settlement Markets female never",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 6
     },
     {
@@ -39,28 +39,28 @@
       "name": "Andy",
       "image": "/assets/boxer.png",
       "description": "Gasoline now transmit black BMX Cuban Oklahoma ubiquitous",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 9
     },
     {
       "name": "Jerrod",
       "image": "/assets/boxer.png",
       "description": "fooey merrily Representative gown Sausages",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 10
     },
     {
       "name": "Orrin",
       "image": "/assets/blue-heeler.png",
       "description": "haptic 1080p Pop Gasoline Bedfordshire Lawrencium Jewelery",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 11
     },
     {
       "name": "Hilma",
       "image": "/assets/blue-heeler.png",
       "description": "Pizza SAS Polygender track Engineer Bronze Alphonso navigate",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 13
     },
     {
@@ -102,7 +102,7 @@
       "name": "Rebekah",
       "image": "/assets/cowardly.png",
       "description": "musty Tools Monahan gadzooks pro Practical West Adaptive",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 19
     },
     {
@@ -130,7 +130,7 @@
       "name": "wont work",
       "description": "euasoheulraoechusnth",
       "image": "/assets/corgi.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 89
     },
     {
@@ -144,42 +144,42 @@
       "name": "as,co;uhaoesnthue",
       "description": "usanoehusaoenu",
       "image": "/assets/chihuahua.avif",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 99
     },
     {
       "name": "ngdc",
       "description": "tdsrcdh",
       "image": "/assets/corgi.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 100
     },
     {
       "name": "This dog",
       "description": "what a dog",
       "image": "/assets/cowardly.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 101
     },
     {
       "name": "Another Dog",
       "description": "Another test",
       "image": "/assets/boxer.jpeg",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 103
     },
     {
       "name": "test",
       "description": "test",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 104
     },
     {
       "name": "Reddit",
       "description": "Reddit",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 105
     },
     {
@@ -300,6 +300,195 @@
       "image": "",
       "isFavorite": false,
       "id": 122
+    },
+    {
+      "name": "New Dog",
+      "description": "Doggo",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 123
+    },
+    {
+      "name": "NoLuck",
+      "description": "A dog with no luck",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 124
+    },
+    {
+      "name": "dog",
+      "description": "extra",
+      "image": "",
+      "isFavorite": false,
+      "id": 125
+    },
+    {
+      "name": "",
+      "description": "",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 126
+    },
+    {
+      "name": "hsth",
+      "description": "snth",
+      "image": "",
+      "isFavorite": false,
+      "id": 127
+    },
+    {
+      "name": "Test",
+      "description": "Test",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 128
+    },
+    {
+      "name": "Dog",
+      "description": "Dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 129
+    },
+    {
+      "name": "dog",
+      "description": "dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 130
+    },
+    {
+      "name": "doggg",
+      "description": "dogggg",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 131
+    },
+    {
+      "name": "again",
+      "description": "again",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 132
+    },
+    {
+      "name": "Watcher",
+      "description": "WatcherDog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 133
+    },
+    {
+      "name": "Anether watchdog",
+      "description": "Watcher of Dog of Watchers",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 134
+    },
+    {
+      "name": "th",
+      "description": "th",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 135
+    },
+    {
+      "name": "wm",
+      "description": "wm",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 136
+    },
+    {
+      "name": "hnth",
+      "description": "snnsth",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 137
+    },
+    {
+      "name": "Another Dog",
+      "description": "Dog of another dog?",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 138
+    },
+    {
+      "name": "Holy",
+      "description": "Holly",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 139
+    },
+    {
+      "name": "Testing the test",
+      "description": "of doggedly dog Ed-Ness",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 140
+    },
+    {
+      "name": "n",
+      "description": "n",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 141
+    },
+    {
+      "name": "A new dog of testing?",
+      "description": "A dog of testing!",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 142
+    },
+    {
+      "name": " ",
+      "description": " ",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 143
+    },
+    {
+      "name": "Oh no, a dog",
+      "description": "OF TESSTSING?!",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 144
+    },
+    {
+      "name": "Test",
+      "description": "Test",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 145
+    },
+    {
+      "name": "c",
+      "description": "c",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 146
+    },
+    {
+      "name": "Test this testing dog",
+      "description": "O dog testing the testing dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 147
+    },
+    {
+      "name": "Make this testing a dog",
+      "description": "Oh no, the dog of testing has tested the testing test",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 148
+    },
+    {
+      "name": "Let us test again the testing",
+      "description": "Of the testing dog there is other dogs of testing the test",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 149
     }
   ]
 }

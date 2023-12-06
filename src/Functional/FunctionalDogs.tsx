@@ -38,7 +38,7 @@ export const FunctionalDogs = ({
               handleDogs(dogs.filter((dog) => dog.id));
             }}
             onHeartClick={() => {
-              toast("Dog has been favorited");
+              toast("Dog has been unfavorited");
               Requests.updateDog(dog.id, false)
                 .then((res) => res.json())
                 .then((data) => {
@@ -49,7 +49,7 @@ export const FunctionalDogs = ({
               handleDogs(dogs);
             }}
             onEmptyHeartClick={() => {
-              toast("Dog has been unfavorited");
+              toast("Dog has been favorited");
               Requests.updateDog(dog.id, true)
                 .then((res) => res.json())
                 .then((data) => {

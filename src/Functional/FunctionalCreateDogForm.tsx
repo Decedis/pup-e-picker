@@ -21,25 +21,34 @@ export const FunctionalCreateDogForm = ({
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const disableCondition =
+    isLoading || newDog.description === "" || newDog.name === "";
+
+  const submitActions = () => {
+    setIsLoading(true);
+    Requests.postDog(newDog).then(() => {
+      Requests.getAllDogs().then((dogs) => {
+        setIsLoading(false);
+        setNewDog({
+          name: "",
+          description: "",
+          image: defaultSelectedImage,
+          isFavorite: false,
+        });
+
+        return handleNewDog(dogs);
+      });
+    });
+    toast("Dog has been created");
+  };
+
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
-        setIsLoading(true);
-        Requests.postDog(newDog);
-        Requests.getAllDogs().then((res) => {
-          setIsLoading(false);
-          return handleNewDog(res);
-        });
-        toast("Dog has been created");
-        setNewDog({
-          name: "",
-          description: "",
-          image: "",
-          isFavorite: false,
-        });
+        submitActions();
       }}
     >
       <h4>Create a New Dog</h4>
@@ -81,9 +90,9 @@ export const FunctionalCreateDogForm = ({
               {label}
             </option>
           );
-        })}
-      </select>
-      <input type="submit" disabled={isLoading} />
+        })}{" "}
+      </select>{" "}
+      <input type="submit" disabled={disableCondition} />{" "}
     </form>
   );
 };
