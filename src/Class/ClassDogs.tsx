@@ -1,92 +1,69 @@
 import { DogCard } from "../Shared/DogCard";
 import { Component } from "react";
 import { dogPictures } from "../dog-pictures";
+import { Dog } from "../types";
+import { Requests } from "../api";
+import toast from "react-hot-toast";
 
 // Right now these dogs are constant, but in reality we should be getting these from our server
-export class ClassDogs extends Component {
+type Props = {
+  dogs: Dog[];
+  handleDogs: (input: Dog[]) => void;
+};
+export class ClassDogs extends Component<Props> {
   render() {
+    const { dogs, handleDogs } = this.props;
+
+    const dogMapping = (data: Dog): Dog[] =>
+      dogs.map((dog) => {
+        let index = dogs.indexOf(dog);
+        if (dogs[index].id === dog.id) {
+          return { ...dog, isFavorite: data.isFavorite };
+        }
+        return dog;
+      });
+
     return (
       <>
-        <DogCard
-          dog={{
-            id: 1,
-            image: dogPictures.BlueHeeler,
-            description: "Example Description",
-            isFavorite: false,
-            name: "Cute Blue Heeler",
-          }}
-          key={1}
-          onTrashIconClick={() => {
-            alert("clicked trash");
-          }}
-          onHeartClick={() => {
-            alert("clicked heart");
-          }}
-          onEmptyHeartClick={() => {
-            alert("clicked empty heart");
-          }}
-          isLoading={false}
-        />
-        <DogCard
-          dog={{
-            id: 2,
-            image: dogPictures.Boxer,
-            description: "Example Description",
-            isFavorite: false,
-            name: "Cute Boxer",
-          }}
-          key={2}
-          onTrashIconClick={() => {
-            alert("clicked trash");
-          }}
-          onHeartClick={() => {
-            alert("clicked heart");
-          }}
-          onEmptyHeartClick={() => {
-            alert("clicked empty heart");
-          }}
-          isLoading={false}
-        />
-        <DogCard
-          dog={{
-            id: 3,
-            image: dogPictures.Chihuahua,
-            description: "Example Description",
-            isFavorite: false,
-            name: "Cute Chihuahua",
-          }}
-          key={3}
-          onTrashIconClick={() => {
-            alert("clicked trash");
-          }}
-          onHeartClick={() => {
-            alert("clicked heart");
-          }}
-          onEmptyHeartClick={() => {
-            alert("clicked empty heart");
-          }}
-          isLoading={false}
-        />
-        <DogCard
-          dog={{
-            id: 4,
-            image: dogPictures.Corgi,
-            description: "Example Description",
-            isFavorite: false,
-            name: "Cute Corgi",
-          }}
-          key={4}
-          onTrashIconClick={() => {
-            alert("clicked trash");
-          }}
-          onHeartClick={() => {
-            alert("clicked heart");
-          }}
-          onEmptyHeartClick={() => {
-            alert("clicked empty heart");
-          }}
-          isLoading={false}
-        />
+        {dogs.map((dog) => {
+          <DogCard
+            dog={{
+              id: dog.id,
+              image: dog.image,
+              description: dog.description,
+              isFavorite: dog.isFavorite,
+              name: dog.name,
+            }}
+            key={dog.id}
+            onTrashIconClick={() => {
+              Requests.deleteDog(dog.id).catch((err) => console.log(err));
+              handleDogs(dogs.filter((dog) => dog.id));
+            }}
+            onHeartClick={() => {
+              toast("Dog has been unfavorited");
+              Requests.updateDog(dog.id, false)
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                  handleDogs(dogMapping(data));
+                })
+                .catch((err) => console.log(err));
+              handleDogs(dogs);
+            }}
+            onEmptyHeartClick={() => {
+              toast("Dog has been favorited");
+              Requests.updateDog(dog.id, true)
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                  handleDogs(dogMapping(data));
+                })
+                .catch((err) => console.log(err));
+              handleDogs(dogs);
+            }}
+            isLoading={false}
+          />;
+        })}
       </>
     );
   }

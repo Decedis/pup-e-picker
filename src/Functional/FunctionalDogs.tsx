@@ -18,6 +18,7 @@ export const FunctionalDogs = ({
       }
       return dog;
     });
+
   return dogs.length > 0 ? (
     <>
       {dogs.map((dog) => {
