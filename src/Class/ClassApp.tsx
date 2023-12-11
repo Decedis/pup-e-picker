@@ -22,6 +22,9 @@ export class ClassApp extends Component {
   };
 
   componentDidUpdate(_: any, prevState: TState) {
+    //I know there's an any here, but I'm not using it,
+    //If I delete "_: any", I get an error, so I'm leaving it in
+
     const { dogData, isActive } = this.state;
 
     const favoritedDogs = dogData.filter((dog) => dog.isFavorite);
