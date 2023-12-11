@@ -17,25 +17,24 @@ export class ClassSection extends Component<ClassProps, ClassState> {
   state: ClassState = {
     isActive: "all",
   };
+
+  componentDidMount() {
+    this.props.handleActive(this.state.isActive);
+  }
+
+  componentDidUpdate(prevProps: ClassProps, prevState: ClassState) {
+    if (prevState.isActive !== this.state.isActive) {
+      this.props.handleActive(this.state.isActive);
+    }
+  }
+
   render() {
-    const { favoritedDogs, notFavoritedDogs, handleActive, children } =
-      this.props;
+    const { favoritedDogs, notFavoritedDogs, children } = this.props;
     const { isActive } = this.state;
     const activeStyle = (target: "favorited" | "unfavorited" | "create") => {
       return isActive === target ? `selector active` : `selector`;
     };
-    this.componentDidMount = () => {
-      handleActive(isActive);
-    };
-    this.componentDidUpdate = (prevProps, prevState) => {
-      if (
-        prevState.isActive !== this.state.isActive ||
-        prevProps.handleActive !== this.props.handleActive
-      ) {
-        handleActive(isActive);
-      }
-      handleActive(isActive);
-    };
+
     return (
       <section id="main-section">
         <div className="container-header">
@@ -52,7 +51,7 @@ export class ClassSection extends Component<ClassProps, ClassState> {
               onClick={() => {
                 this.setState((lastVal) => ({
                   isActive:
-                    lastVal.toString() === "favorited" ? "all" : "favorited",
+                    lastVal.isActive === "favorited" ? "all" : "favorited",
                 }));
               }}
             >
@@ -65,9 +64,7 @@ export class ClassSection extends Component<ClassProps, ClassState> {
               onClick={() => {
                 this.setState((lastVal) => ({
                   isActive:
-                    lastVal.toString() === "unfavorited"
-                      ? "all"
-                      : "unfavorited",
+                    lastVal.isActive === "unfavorited" ? "all" : "unfavorited",
                 }));
               }}
             >
@@ -77,7 +74,7 @@ export class ClassSection extends Component<ClassProps, ClassState> {
               className={activeStyle("create")}
               onClick={() => {
                 this.setState((lastVal) => ({
-                  isActive: lastVal.toString() === "create" ? "all" : "create",
+                  isActive: lastVal.isActive === "create" ? "all" : "create",
                 }));
               }}
             >

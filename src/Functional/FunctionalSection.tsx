@@ -21,7 +21,7 @@ export const FunctionalSection = ({
 
   useEffect(() => {
     handleActive(isActive);
-  }, [isActive, handleActive]);
+  }, [isActive]);
 
   const activeStyle = (target: "favorited" | "unfavorited" | "create") => {
     return isActive === target ? `selector active` : `selector`;

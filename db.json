@@ -183,20 +183,6 @@
       "id": 105
     },
     {
-      "name": "",
-      "description": "",
-      "image": "",
-      "isFavorite": false,
-      "id": 106
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "",
-      "isFavorite": false,
-      "id": 107
-    },
-    {
       "name": "snth",
       "description": "snth",
       "image": "/assets/blue-heeler.png",
@@ -207,42 +193,35 @@
       "name": "",
       "description": "",
       "image": "",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 109
     },
     {
       "name": "Slow",
       "description": "Slow",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 110
     },
     {
       "name": "",
       "description": "",
       "image": "",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 111
-    },
-    {
-      "name": "h",
-      "description": "h",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 112
     },
     {
       "name": "",
       "description": "",
       "image": "",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 113
     },
     {
       "name": "Teos",
       "description": "aoseuthaoe",
       "image": "",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 114
     },
     {
@@ -251,13 +230,6 @@
       "image": "",
       "isFavorite": false,
       "id": 115
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "",
-      "isFavorite": false,
-      "id": 116
     },
     {
       "name": "",
@@ -272,13 +244,6 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 118
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "",
-      "isFavorite": false,
-      "id": 119
     },
     {
       "name": "n",
@@ -363,13 +328,6 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 131
-    },
-    {
-      "name": "again",
-      "description": "again",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 132
     },
     {
       "name": "Watcher",
@@ -489,6 +447,55 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 149
+    },
+    {
+      "name": "Class Dog",
+      "description": "Class Dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 150
+    },
+    {
+      "name": "h",
+      "description": "h",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 151
+    },
+    {
+      "name": "mw",
+      "description": "w",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 152
+    },
+    {
+      "name": "New Dog",
+      "description": "Dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 153
+    },
+    {
+      "name": "cg",
+      "description": "dh",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 154
+    },
+    {
+      "name": "hd",
+      "description": "c",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 155
+    },
+    {
+      "name": "sch",
+      "description": "snth",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 156
     }
   ]
 }
