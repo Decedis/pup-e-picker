@@ -86,26 +86,30 @@ export class ClassApp extends Component {
         <ClassSection
           favoritedDogs={favoritedDogs}
           notFavoritedDogs={notFavoritedDogs}
-          handleActiveComponent={() => {
-            this.setState({ activeComponent: activeComponent });
+          handleActiveComponent={(active) => {
+            this.setState({ activeComponent: active });
           }}
         >
           {!showSomeDogs && (
             <ClassCreateDogForm
               isLoading={isLoading}
-              loadingHandler={() => this.setState({ isLoading: isLoading })}
-              handleNewDog={() => this.setState({ allDogs: allDogs })}
+              loadingHandler={(loading) =>
+                this.setState({ isLoading: loading })
+              }
+              handleNewDog={(dogs) => this.setState({ allDogs: dogs })}
             />
           )}
           {showSomeDogs && (
             <ClassDogs
               dogs={filteredDogs}
               deleteDog={deleteDog}
-              handleDogs={() => this.setState({ allDogs: allDogs })}
+              handleDogs={(dogs) => this.setState({ allDogs: dogs })}
               favoriteDog={favoriteDog}
               unFavoriteDog={unFavoriteDog}
               isLoading={isLoading}
-              loadingHandler={() => this.setState({ isLoading: isLoading })}
+              loadingHandler={(loading) =>
+                this.setState({ isLoading: loading })
+              }
             />
           )}
         </ClassSection>
