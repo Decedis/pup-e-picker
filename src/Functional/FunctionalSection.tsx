@@ -2,30 +2,35 @@
 import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Dog } from "../types";
+import { ActiveComponent } from "../types";
 
 type TFunctionalSectionProps = {
   favoritedDogs: Dog[];
   notFavoritedDogs: Dog[];
-  handleActive: (input: "favorited" | "unfavorited" | "create" | "all") => void;
+  handleActiveComponent: (input: ActiveComponent) => void;
   children: ReactNode;
 };
+
 export const FunctionalSection = ({
   favoritedDogs,
   notFavoritedDogs,
-  handleActive,
+  handleActiveComponent,
   children,
 }: TFunctionalSectionProps) => {
-  const [isActive, setIsActive] = useState<
-    "favorited" | "unfavorited" | "create" | "all"
-  >("all");
+  const [activeComponent, setIsActiveComponent] =
+    useState<ActiveComponent>("all");
 
   useEffect(() => {
-    handleActive(isActive);
-  }, [isActive]);
+    handleActiveComponent(activeComponent);
+  }, [activeComponent]);
 
-  const activeStyle = (target: "favorited" | "unfavorited" | "create") => {
-    return isActive === target ? `selector active` : `selector`;
+  const componentSwitcher = (target: ActiveComponent) => {
+    setIsActiveComponent((lastVal) => (lastVal === target ? "all" : target));
   };
+  const activeStyle = (target: ActiveComponent) => {
+    return activeComponent === target ? `selector active` : `selector`;
+  };
+
   return (
     <section id="main-section">
       <div className="container-header">
@@ -38,9 +43,7 @@ export const FunctionalSection = ({
           <div
             className={activeStyle("favorited")}
             onClick={() => {
-              setIsActive((lastVal) =>
-                lastVal === "favorited" ? "all" : "favorited"
-              );
+              componentSwitcher("favorited");
             }}
           >
             favorited ( {favoritedDogs.length} )
@@ -50,9 +53,7 @@ export const FunctionalSection = ({
           <div
             className={activeStyle("unfavorited")}
             onClick={() => {
-              setIsActive((lastVal) =>
-                lastVal === "unfavorited" ? "all" : "unfavorited"
-              );
+              componentSwitcher("unfavorited");
             }}
           >
             unfavorited ( {notFavoritedDogs.length} )
@@ -60,9 +61,7 @@ export const FunctionalSection = ({
           <div
             className={activeStyle("create")}
             onClick={() => {
-              setIsActive((lastVal) =>
-                lastVal === "create" ? "all" : "create"
-              );
+              componentSwitcher("create");
             }}
           >
             create dog

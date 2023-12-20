@@ -2,12 +2,12 @@ import { Component } from "react";
 import { ClassSection } from "./ClassSection";
 import { ClassDogs } from "./ClassDogs";
 import { ClassCreateDogForm } from "./ClassCreateDogForm";
-import { Dog } from "../types";
+import { ActiveComponent, Dog } from "../types";
 import { Requests } from "../api";
 
 type TState = {
   dogData: Dog[];
-  isActive: "favorited" | "unfavorited" | "create" | "all";
+  isActive: ActiveComponent;
 };
 export class ClassApp extends Component {
   state: TState = {

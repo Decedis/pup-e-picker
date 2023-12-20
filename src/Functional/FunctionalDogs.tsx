@@ -2,24 +2,35 @@ import { DogCard } from "../Shared/DogCard";
 import { Dog } from "../types";
 import { Requests } from "../api";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 export const FunctionalDogs = ({
   dogs,
   handleDogs,
+  deleteDog,
+  favoriteDog,
+  unFavoriteDog,
+  isLoading,
+  loadingHandler,
 }: {
   dogs: Dog[];
   handleDogs: (input: Dog[]) => void;
+  deleteDog: (input: number) => void;
+  favoriteDog: (input: number) => void;
+  unFavoriteDog: (input: number) => void;
+  isLoading: boolean;
+  loadingHandler: (input: boolean) => void;
 }): JSX.Element => {
-  const dogMapping = (data: Dog): Dog[] =>
-    dogs.map((dog) => {
-      let index = dogs.indexOf(dog);
-      if (dogs[index].id === dog.id) {
-        return { ...dog, isFavorite: data.isFavorite };
-      }
-      return dog;
-    });
+  useEffect(() => {
+    loadingHandler(true);
+    Requests.getAllDogs()
+      .then(handleDogs)
+      .finally(() => {
+        loadingHandler(false);
+      });
+  }, []);
 
-  return dogs.length > 0 ? (
+  return dogs.length > 0 || isLoading ? (
     <>
       {dogs.map((dog) => {
         return (
@@ -33,32 +44,15 @@ export const FunctionalDogs = ({
             }}
             key={dog.id}
             onTrashIconClick={() => {
-              Requests.deleteDog(dog.id).catch((err) => console.log(err));
-              handleDogs(dogs.filter((dog) => dog.id));
+              deleteDog(dog.id);
             }}
             onHeartClick={() => {
-              toast("Dog has been unfavorited");
-              Requests.updateDog(dog.id, false)
-                .then((res) => res.json())
-                .then((data) => {
-                  console.log(data);
-                  handleDogs(dogMapping(data));
-                })
-                .catch((err) => console.log(err));
-              handleDogs(dogs);
+              unFavoriteDog(dog.id);
             }}
             onEmptyHeartClick={() => {
-              toast("Dog has been favorited");
-              Requests.updateDog(dog.id, true)
-                .then((res) => res.json())
-                .then((data) => {
-                  console.log(data);
-                  handleDogs(dogMapping(data));
-                })
-                .catch((err) => console.log(err));
-              handleDogs(dogs);
+              favoriteDog(dog.id);
             }}
-            isLoading={false}
+            isLoading={isLoading}
           />
         );
       })}

@@ -463,32 +463,11 @@
       "id": 151
     },
     {
-      "name": "mw",
-      "description": "w",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 152
-    },
-    {
       "name": "New Dog",
       "description": "Dog",
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 153
-    },
-    {
-      "name": "cg",
-      "description": "dh",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 154
-    },
-    {
-      "name": "hd",
-      "description": "c",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 155
     },
     {
       "name": "sch",

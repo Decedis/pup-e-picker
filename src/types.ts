@@ -5,3 +5,5 @@ export type Dog = {
   image: string;
   isFavorite: boolean;
 };
+
+export type ActiveComponent = "favorited" | "unfavorited" | "create" | "all";
