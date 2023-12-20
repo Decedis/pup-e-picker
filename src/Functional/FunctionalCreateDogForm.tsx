@@ -8,38 +8,39 @@ import toast from "react-hot-toast";
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
 export const FunctionalCreateDogForm = ({
+  isLoading,
+  loadingHandler,
   handleNewDog,
 }: {
+  isLoading: boolean;
+  loadingHandler: (input: boolean) => void;
   handleNewDog: (input: Dog[]) => void;
 }) => {
-  //create dog state
   const [newDog, setNewDog] = useState<Omit<Dog, "id">>({
     name: "",
     description: "",
     image: defaultSelectedImage,
     isFavorite: false,
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const disableCondition =
     isLoading || newDog.description === "" || newDog.name === "";
 
   const submitActions = () => {
-    setIsLoading(true);
+    loadingHandler(true);
     Requests.postDog(newDog).then(() => {
       Requests.getAllDogs().then((dogs) => {
-        setIsLoading(false);
+        loadingHandler(false);
         setNewDog({
           name: "",
           description: "",
           image: defaultSelectedImage,
           isFavorite: false,
         });
-
         return handleNewDog(dogs);
       });
     });
-    toast("Dog has been created");
+    toast.success("Dog has been created");
   };
 
   return (

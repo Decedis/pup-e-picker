@@ -43,6 +43,15 @@ export function FunctionalApp() {
         setIsLoading(false);
       });
   };
+  const deleteDog = (id: number) => {
+    Requests.deleteDog(id).then(refetch);
+  };
+  const favoriteDog = (id: number) => {
+    Requests.updateDog(id, true).then(refetch);
+  };
+  const unFavoriteDog = (id: number) => {
+    Requests.updateDog(id, false).then(refetch);
+  };
 
   useEffect(() => {
     refetch();
@@ -66,7 +75,13 @@ export function FunctionalApp() {
         notFavoritedDogs={notFavoritedDogs}
         handleActiveComponent={setIsActiveComponent}
       >
-        {!showSomeDogs && <FunctionalCreateDogForm handleNewDog={setAllDogs} />}
+        {!showSomeDogs && (
+          <FunctionalCreateDogForm
+            isLoading={isLoading}
+            loadingHandler={setIsLoading}
+            handleNewDog={setAllDogs}
+          />
+        )}
         {showSomeDogs && (
           <FunctionalDogs
             dogs={filteredDogs}

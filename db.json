@@ -227,15 +227,8 @@
     {
       "name": "",
       "description": "",
-      "image": "",
-      "isFavorite": false,
-      "id": 115
-    },
-    {
-      "name": "",
-      "description": "",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 117
     },
     {
@@ -475,6 +468,41 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 156
+    },
+    {
+      "name": "Full",
+      "description": "Dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 157
+    },
+    {
+      "name": "t",
+      "description": "t",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 158
+    },
+    {
+      "name": "sch",
+      "description": "shch",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 159
+    },
+    {
+      "name": "Slow",
+      "description": "Slow",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 160
+    },
+    {
+      "name": "snth",
+      "description": "sthn",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": false,
+      "id": 161
     }
   ]
 }
