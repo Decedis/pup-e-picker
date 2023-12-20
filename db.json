@@ -503,6 +503,13 @@
       "image": "/assets/boxer.jpeg",
       "isFavorite": false,
       "id": 161
+    },
+    {
+      "name": "shnt",
+      "description": "snthtns",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 162
     }
   ]
 }

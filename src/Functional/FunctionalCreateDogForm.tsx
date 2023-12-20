@@ -91,9 +91,9 @@ export const FunctionalCreateDogForm = ({
               {label}
             </option>
           );
-        })}{" "}
-      </select>{" "}
-      <input type="submit" disabled={disableCondition} />{" "}
+        })}
+      </select>
+      <input type="submit" disabled={disableCondition} />
     </form>
   );
 };
