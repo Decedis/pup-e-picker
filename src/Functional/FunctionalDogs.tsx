@@ -1,7 +1,6 @@
 import { DogCard } from "../Shared/DogCard";
 import { Dog } from "../types";
 import { Requests } from "../api";
-import toast from "react-hot-toast";
 import { useEffect } from "react";
 
 export const FunctionalDogs = ({

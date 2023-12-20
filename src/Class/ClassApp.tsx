@@ -4,20 +4,24 @@ import { ClassDogs } from "./ClassDogs";
 import { ClassCreateDogForm } from "./ClassCreateDogForm";
 import { ActiveComponent, Dog } from "../types";
 import { Requests } from "../api";
+import { getFilteredDogs } from "../Functional/FunctionalApp";
 
 type TState = {
-  dogData: Dog[];
-  isActive: ActiveComponent;
+  allDogs: Dog[];
+  activeComponent: ActiveComponent;
+  isLoading: boolean;
 };
+
 export class ClassApp extends Component {
   state: TState = {
-    dogData: [],
-    isActive: "all",
+    allDogs: [],
+    activeComponent: "all",
+    isLoading: false,
   };
 
   componentDidMount = () => {
     Requests.getAllDogs().then((res) => {
-      return this.setState({ dogData: res });
+      return this.setState({ allDogs: res });
     });
   };
 
@@ -25,16 +29,16 @@ export class ClassApp extends Component {
     //I know there's an any here, but I'm not using it,
     //If I delete "_: any", I get an error, so I'm leaving it in
 
-    const { dogData, isActive } = this.state;
+    const { allDogs, activeComponent } = this.state;
 
-    const favoritedDogs = dogData.filter((dog) => dog.isFavorite);
-    const notFavoritedDogs = dogData.filter((dog) => !dog.isFavorite);
+    const favoritedDogs = allDogs.filter((dog) => dog.isFavorite);
+    const notFavoritedDogs = allDogs.filter((dog) => !dog.isFavorite);
 
     if (
-      prevState.dogData.length !== dogData.length ||
-      prevState.isActive !== isActive ||
-      prevState.dogData.filter((dog) => dog.isFavorite) !== favoritedDogs ||
-      prevState.dogData.filter((dog) => !dog.isFavorite) !== notFavoritedDogs
+      prevState.allDogs.length !== allDogs.length ||
+      prevState.activeComponent !== activeComponent ||
+      prevState.allDogs.filter((dog) => dog.isFavorite) !== favoritedDogs ||
+      prevState.allDogs.filter((dog) => !dog.isFavorite) !== notFavoritedDogs
     ) {
       Requests.getAllDogs().then((res) => {
         this.setState({ dogData: res });
@@ -43,43 +47,65 @@ export class ClassApp extends Component {
   }
 
   render() {
-    const { dogData, isActive } = this.state;
+    const { allDogs, isLoading, activeComponent } = this.state;
 
-    const favoritedDogs = dogData.filter((dog) => dog.isFavorite);
-    const notFavoritedDogs = dogData.filter((dog) => !dog.isFavorite);
+    const favoritedDogs = allDogs.filter((dog) => dog.isFavorite);
+    const notFavoritedDogs = allDogs.filter((dog) => !dog.isFavorite);
+
+    const refetch = () => {
+      this.setState({ isLoading: true });
+      Requests.getAllDogs()
+        .then((res) => this.setState({ allDogs: res }))
+        .finally(() => {
+          this.setState({ isLoading: false });
+        });
+    };
+    const deleteDog = (id: number) => {
+      Requests.deleteDog(id).then(refetch);
+    };
+    const favoriteDog = (id: number) => {
+      Requests.updateDog(id, true).then(refetch);
+    };
+    const unFavoriteDog = (id: number) => {
+      Requests.updateDog(id, false).then(refetch);
+    };
+
+    const filteredDogs = getFilteredDogs({
+      allDogs: allDogs,
+      favorited: favoritedDogs,
+      unFavorited: notFavoritedDogs,
+      activeComponent: activeComponent,
+    });
+    const showSomeDogs = activeComponent !== "create";
 
     return (
-      <div className="App" style={{ backgroundColor: "goldenrod" }}>
+      <div className="App" style={{ backgroundColor: "skyblue" }}>
         <header>
-          <h1>pup-e-picker (Class Version)</h1>
+          <h1>pup-e-picker (Functional)</h1>
         </header>
         <ClassSection
           favoritedDogs={favoritedDogs}
           notFavoritedDogs={notFavoritedDogs}
-          handleActive={(active) => {
-            this.setState({ isActive: active });
+          handleActiveComponent={() => {
+            this.setState({ activeComponent: activeComponent });
           }}
         >
-          {isActive === "favorited" ? (
-            <ClassDogs
-              dogs={favoritedDogs}
-              handleDogs={(data) => this.setState({ dogData: data })}
-            />
-          ) : isActive === "unfavorited" ? (
-            <ClassDogs
-              dogs={notFavoritedDogs}
-              handleDogs={(data) => this.setState({ dogData: data })}
-            />
-          ) : isActive === "create" ? (
+          {!showSomeDogs && (
             <ClassCreateDogForm
-              handleNewDog={(value) => {
-                this.setState(value);
-              }}
+              isLoading={isLoading}
+              loadingHandler={() => this.setState({ isLoading: isLoading })}
+              handleNewDog={() => this.setState({ allDogs: allDogs })}
             />
-          ) : (
+          )}
+          {showSomeDogs && (
             <ClassDogs
-              dogs={dogData}
-              handleDogs={(data) => this.setState({ dogData: data })}
+              dogs={filteredDogs}
+              deleteDog={deleteDog}
+              handleDogs={() => this.setState({ allDogs: allDogs })}
+              favoriteDog={favoriteDog}
+              unFavoriteDog={unFavoriteDog}
+              isLoading={isLoading}
+              loadingHandler={() => this.setState({ isLoading: isLoading })}
             />
           )}
         </ClassSection>

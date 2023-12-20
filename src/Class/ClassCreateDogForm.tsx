@@ -7,12 +7,13 @@ import toast from "react-hot-toast";
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
 type ClassProps = {
+  isLoading: boolean;
+  loadingHandler: (input: boolean) => void;
   handleNewDog: (input: Dog[]) => void;
 };
 
 type ClassState = {
   newDog: Omit<Dog, "id">;
-  isLoading: boolean;
 };
 
 export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
@@ -23,20 +24,19 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
       image: defaultSelectedImage,
       isFavorite: false,
     },
-    isLoading: false,
   };
   render() {
-    const { handleNewDog } = this.props;
-    const { newDog, isLoading } = this.state;
+    const { isLoading, loadingHandler, handleNewDog } = this.props;
+    const { newDog } = this.state;
 
     const disableCondition =
       isLoading || newDog.description === "" || newDog.name === "";
 
     const submitActions = () => {
-      this.setState({ isLoading: true });
+      loadingHandler(true);
       Requests.postDog(newDog).then(() => {
         Requests.getAllDogs().then((dogs) => {
-          this.setState({ isLoading: false });
+          loadingHandler(false);
           this.setState({
             newDog: {
               name: "",
@@ -45,11 +45,10 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
               isFavorite: false,
             },
           });
-
           return handleNewDog(dogs);
         });
       });
-      toast("Dog has been created");
+      toast.success("Dog has been created");
     };
 
     return (
