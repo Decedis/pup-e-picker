@@ -32,7 +32,8 @@ export const Requests = {
       .catch((err) => console.log(err));
   },
 
-  updateDog: (id: number, newIsFav: boolean) => {
+  //newData makes the update method more flexible
+  updateDog: (id: number, newData: Partial<Dog>) => {
     //function to update "fav" value of dogs
     return fetch(baseUrl + "/dogs/" + id, {
       method: "PATCH",
@@ -40,7 +41,7 @@ export const Requests = {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        isFavorite: newIsFav,
+        ...newData, //this is made for this type of function
       }),
     });
     //TODO bug: can unFav, but not reFav

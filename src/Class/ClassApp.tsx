@@ -63,11 +63,19 @@ export class ClassApp extends Component {
     const deleteDog = (id: number) => {
       Requests.deleteDog(id).then(refetch);
     };
+    const postDog = (newDog: Omit<Dog, "id">) => {
+      this.setState({ isLoading: true });
+      return Requests.postDog(newDog)
+        .then(refetch)
+        .finally(() => {
+          this.setState({ setIsLoading: false });
+        });
+    };
     const favoriteDog = (id: number) => {
-      Requests.updateDog(id, true).then(refetch);
+      Requests.updateDog(id, { isFavorite: true }).then(refetch);
     };
     const unFavoriteDog = (id: number) => {
-      Requests.updateDog(id, false).then(refetch);
+      Requests.updateDog(id, { isFavorite: false }).then(refetch);
     };
 
     const filteredDogs = getFilteredDogs({
@@ -91,13 +99,7 @@ export class ClassApp extends Component {
           }}
         >
           {!showSomeDogs && (
-            <ClassCreateDogForm
-              isLoading={isLoading}
-              loadingHandler={(loading) =>
-                this.setState({ isLoading: loading })
-              }
-              handleNewDog={(dogs) => this.setState({ allDogs: dogs })}
-            />
+            <ClassCreateDogForm isLoading={isLoading} postDog={postDog} />
           )}
           {showSomeDogs && (
             <ClassDogs

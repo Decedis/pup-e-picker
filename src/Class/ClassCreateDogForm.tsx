@@ -5,11 +5,16 @@ import { Requests } from "../api";
 import toast from "react-hot-toast";
 
 const defaultSelectedImage = dogPictures.BlueHeeler;
+const defaultDog = {
+  name: "",
+  description: "",
+  image: defaultSelectedImage,
+  isFavorite: false,
+};
 
 type ClassProps = {
   isLoading: boolean;
-  loadingHandler: (input: boolean) => void;
-  handleNewDog: (input: Dog[]) => void;
+  postDog: (input: Omit<Dog, "id">) => Promise<unknown>;
 };
 
 type ClassState = {
@@ -26,30 +31,11 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
     },
   };
   render() {
-    const { isLoading, loadingHandler, handleNewDog } = this.props;
+    const { isLoading, postDog } = this.props;
     const { newDog } = this.state;
 
     const disableCondition =
       isLoading || newDog.description === "" || newDog.name === "";
-
-    const submitActions = () => {
-      loadingHandler(true);
-      Requests.postDog(newDog).then(() => {
-        Requests.getAllDogs().then((dogs) => {
-          loadingHandler(false);
-          this.setState({
-            newDog: {
-              name: "",
-              description: "",
-              image: defaultSelectedImage,
-              isFavorite: false,
-            },
-          });
-          return handleNewDog(dogs);
-        });
-      });
-      toast.success("Dog has been created");
-    };
 
     return (
       <form
@@ -57,7 +43,14 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
         id="create-dog-form"
         onSubmit={(e) => {
           e.preventDefault();
-          submitActions();
+          postDog({ ...newDog })
+            .then(() => {
+              this.setState({ newDog: defaultDog });
+              return toast.success("Dog has been created");
+            })
+            .catch(() => {
+              return toast.error("Dog could not be created");
+            });
         }}
       >
         <h4>Create a New Dog</h4>

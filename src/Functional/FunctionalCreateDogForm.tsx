@@ -1,47 +1,28 @@
 import { dogPictures } from "../dog-pictures";
-import { Requests } from "../api";
 import { useState } from "react";
 import { Dog } from "../types";
 import toast from "react-hot-toast";
 
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
+const defaultDog = {
+  name: "",
+  description: "",
+  image: defaultSelectedImage,
+  isFavorite: false,
+};
 
 export const FunctionalCreateDogForm = ({
   isLoading,
-  loadingHandler,
-  handleNewDog,
+  postDog,
 }: {
   isLoading: boolean;
-  loadingHandler: (input: boolean) => void;
-  handleNewDog: (input: Dog[]) => void;
+  postDog: (input: Omit<Dog, "id">) => Promise<unknown>;
 }) => {
-  const [newDog, setNewDog] = useState<Omit<Dog, "id">>({
-    name: "",
-    description: "",
-    image: defaultSelectedImage,
-    isFavorite: false,
-  });
+  const [newDog, setNewDog] = useState<Omit<Dog, "id">>(defaultDog);
 
   const disableCondition =
     isLoading || newDog.description === "" || newDog.name === "";
-
-  const submitActions = () => {
-    loadingHandler(true);
-    Requests.postDog(newDog).then(() => {
-      Requests.getAllDogs().then((dogs) => {
-        loadingHandler(false);
-        setNewDog({
-          name: "",
-          description: "",
-          image: defaultSelectedImage,
-          isFavorite: false,
-        });
-        return handleNewDog(dogs);
-      });
-    });
-    toast.success("Dog has been created");
-  };
 
   return (
     <form
@@ -49,7 +30,14 @@ export const FunctionalCreateDogForm = ({
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
-        submitActions();
+        postDog({ ...newDog })
+          .then(() => {
+            setNewDog(defaultDog);
+            return toast.success("Dog has been created");
+          })
+          .catch(() => {
+            return toast.error("Dog could not be created");
+          });
       }}
     >
       <h4>Create a New Dog</h4>

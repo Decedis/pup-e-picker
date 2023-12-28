@@ -242,7 +242,7 @@
       "name": "n",
       "description": "",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 120
     },
     {
@@ -251,13 +251,6 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 121
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "",
-      "isFavorite": false,
-      "id": 122
     },
     {
       "name": "New Dog",
@@ -272,27 +265,6 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 124
-    },
-    {
-      "name": "dog",
-      "description": "extra",
-      "image": "",
-      "isFavorite": false,
-      "id": 125
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 126
-    },
-    {
-      "name": "hsth",
-      "description": "snth",
-      "image": "",
-      "isFavorite": false,
-      "id": 127
     },
     {
       "name": "Test",
@@ -524,6 +496,27 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 164
+    },
+    {
+      "name": "id",
+      "description": "idi",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 165
+    },
+    {
+      "name": "Create",
+      "description": "Dog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 166
+    },
+    {
+      "name": "snchshnt",
+      "description": "tnhsnth",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 167
     }
   ]
 }
