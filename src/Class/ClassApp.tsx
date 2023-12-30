@@ -25,27 +25,6 @@ export class ClassApp extends Component {
     });
   };
 
-  componentDidUpdate(_: any, prevState: TState) {
-    //I know there's an any here, but I'm not using it,
-    //If I delete "_: any", I get an error, so I'm leaving it in
-
-    const { allDogs, activeComponent } = this.state;
-
-    const favoritedDogs = allDogs.filter((dog) => dog.isFavorite);
-    const notFavoritedDogs = allDogs.filter((dog) => !dog.isFavorite);
-
-    if (
-      prevState.allDogs.length !== allDogs.length ||
-      prevState.activeComponent !== activeComponent ||
-      prevState.allDogs.filter((dog) => dog.isFavorite) !== favoritedDogs ||
-      prevState.allDogs.filter((dog) => !dog.isFavorite) !== notFavoritedDogs
-    ) {
-      Requests.getAllDogs().then((res) => {
-        this.setState({ dogData: res });
-      });
-    }
-  }
-
   render() {
     const { allDogs, isLoading, activeComponent } = this.state;
 
@@ -84,7 +63,7 @@ export class ClassApp extends Component {
       unFavorited: notFavoritedDogs,
       activeComponent: activeComponent,
     });
-    const showSomeDogs = activeComponent !== "create";
+    const shouldShowDogs = activeComponent !== "create";
 
     return (
       <div className="App" style={{ backgroundColor: "skyblue" }}>
@@ -94,24 +73,21 @@ export class ClassApp extends Component {
         <ClassSection
           favoritedDogs={favoritedDogs}
           notFavoritedDogs={notFavoritedDogs}
-          handleActiveComponent={(active) => {
+          setActiveComponent={(active) => {
             this.setState({ activeComponent: active });
           }}
+          activeComponent={activeComponent}
         >
-          {!showSomeDogs && (
+          {!shouldShowDogs && (
             <ClassCreateDogForm isLoading={isLoading} postDog={postDog} />
           )}
-          {showSomeDogs && (
+          {shouldShowDogs && (
             <ClassDogs
               dogs={filteredDogs}
               deleteDog={deleteDog}
-              handleDogs={(dogs) => this.setState({ allDogs: dogs })}
               favoriteDog={favoriteDog}
               unFavoriteDog={unFavoriteDog}
               isLoading={isLoading}
-              loadingHandler={(loading) =>
-                this.setState({ isLoading: loading })
-              }
             />
           )}
         </ClassSection>

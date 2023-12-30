@@ -27,7 +27,7 @@ export const getFilteredDogs = ({
 };
 
 export function FunctionalApp() {
-  const [activeComponent, setIsActiveComponent] =
+  const [activeComponent, setActiveComponent] =
     useState<ActiveComponent>("all");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [allDogs, setAllDogs] = useState<Dog[]>([]);
@@ -71,7 +71,7 @@ export function FunctionalApp() {
     unFavorited: notFavoritedDogs,
     activeComponent: activeComponent,
   });
-  const showSomeDogs = activeComponent !== "create";
+  const shouldShowDogs = activeComponent !== "create";
 
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
@@ -81,20 +81,19 @@ export function FunctionalApp() {
       <FunctionalSection
         favoritedDogs={favoritedDogs}
         notFavoritedDogs={notFavoritedDogs}
-        handleActiveComponent={setIsActiveComponent}
+        setActiveComponent={setActiveComponent}
+        activeComponent={activeComponent}
       >
-        {!showSomeDogs && (
+        {!shouldShowDogs && (
           <FunctionalCreateDogForm isLoading={isLoading} postDog={postDog} />
         )}
-        {showSomeDogs && (
+        {shouldShowDogs && (
           <FunctionalDogs
             dogs={filteredDogs}
             deleteDog={deleteDog}
-            handleDogs={setAllDogs}
             favoriteDog={favoriteDog}
             unFavoriteDog={unFavoriteDog}
             isLoading={isLoading}
-            loadingHandler={setIsLoading}
           />
         )}
       </FunctionalSection>

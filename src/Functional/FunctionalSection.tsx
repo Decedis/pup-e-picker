@@ -1,5 +1,5 @@
 // you can use this type for react children if you so choose
-import { ReactNode, useEffect, useState } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import { Dog } from "../types";
 import { ActiveComponent } from "../types";
@@ -7,25 +7,20 @@ import { ActiveComponent } from "../types";
 type TFunctionalSectionProps = {
   favoritedDogs: Dog[];
   notFavoritedDogs: Dog[];
-  handleActiveComponent: (input: ActiveComponent) => void;
+  setActiveComponent: Dispatch<SetStateAction<ActiveComponent>>;
+  activeComponent: ActiveComponent;
   children: ReactNode;
 };
 
 export const FunctionalSection = ({
   favoritedDogs,
   notFavoritedDogs,
-  handleActiveComponent,
+  setActiveComponent,
+  activeComponent,
   children,
 }: TFunctionalSectionProps) => {
-  const [activeComponent, setIsActiveComponent] =
-    useState<ActiveComponent>("all");
-
-  useEffect(() => {
-    handleActiveComponent(activeComponent);
-  }, [activeComponent]);
-
   const componentSwitcher = (target: ActiveComponent) => {
-    setIsActiveComponent((lastVal) => (lastVal === target ? "all" : target));
+    setActiveComponent((lastVal) => (lastVal === target ? "all" : target));
   };
   const activeStyle = (target: ActiveComponent) => {
     return activeComponent === target ? `selector active` : `selector`;

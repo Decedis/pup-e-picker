@@ -6,7 +6,8 @@ import { ActiveComponent, Dog } from "../types";
 type ClassProps = {
   favoritedDogs: Dog[];
   notFavoritedDogs: Dog[];
-  handleActiveComponent: (input: ActiveComponent) => void;
+  setActiveComponent: (input: ActiveComponent) => void;
+  activeComponent: ActiveComponent;
   children: ReactNode;
 };
 type ClassState = {
@@ -18,19 +19,10 @@ export class ClassSection extends Component<ClassProps, ClassState> {
     activeComponent: "all",
   };
 
-  componentDidMount() {
-    this.props.handleActiveComponent(this.state.activeComponent);
-  }
-
-  componentDidUpdate(prevProps: ClassProps, prevState: ClassState) {
-    if (prevState.activeComponent !== this.state.activeComponent) {
-      this.props.handleActiveComponent(this.state.activeComponent);
-    }
-  }
-
   render() {
     const { favoritedDogs, notFavoritedDogs, children } = this.props;
     const { activeComponent } = this.state;
+
     const componentSwitcher = (target: ActiveComponent) => {
       this.setState((lastVal) => ({
         activeComponent: lastVal.activeComponent === target ? "all" : target,

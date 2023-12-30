@@ -1,34 +1,21 @@
 import { DogCard } from "../Shared/DogCard";
 import { Dog } from "../types";
-import { Requests } from "../api";
-import { useEffect } from "react";
 
 export const FunctionalDogs = ({
   dogs,
-  handleDogs,
+
   deleteDog,
   favoriteDog,
   unFavoriteDog,
   isLoading,
-  loadingHandler,
 }: {
   dogs: Dog[];
-  handleDogs: (input: Dog[]) => void;
+
   deleteDog: (input: number) => void;
   favoriteDog: (input: number) => void;
   unFavoriteDog: (input: number) => void;
   isLoading: boolean;
-  loadingHandler: (input: boolean) => void;
 }): JSX.Element => {
-  useEffect(() => {
-    loadingHandler(true);
-    Requests.getAllDogs()
-      .then(handleDogs)
-      .finally(() => {
-        loadingHandler(false);
-      });
-  }, []);
-
   return dogs.length > 0 || isLoading ? (
     <>
       {dogs.map((dog) => {
