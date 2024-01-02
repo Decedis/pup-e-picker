@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, SetStateAction } from "react";
 import { ClassSection } from "./ClassSection";
 import { ClassDogs } from "./ClassDogs";
 import { ClassCreateDogForm } from "./ClassCreateDogForm";
@@ -73,9 +73,12 @@ export class ClassApp extends Component {
         <ClassSection
           favoritedDogs={favoritedDogs}
           notFavoritedDogs={notFavoritedDogs}
-          setActiveComponent={(active) => {
-            this.setState({ activeComponent: active });
-          }}
+          setActiveComponent={(active: SetStateAction<ActiveComponent>) =>
+            this.setState({
+              activeComponent:
+                typeof active === "function" ? active(activeComponent) : active,
+            })
+          }
           activeComponent={activeComponent}
         >
           {!shouldShowDogs && (

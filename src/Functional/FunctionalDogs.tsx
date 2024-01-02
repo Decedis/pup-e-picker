@@ -3,14 +3,12 @@ import { Dog } from "../types";
 
 export const FunctionalDogs = ({
   dogs,
-
   deleteDog,
   favoriteDog,
   unFavoriteDog,
   isLoading,
 }: {
   dogs: Dog[];
-
   deleteDog: (input: number) => void;
   favoriteDog: (input: number) => void;
   unFavoriteDog: (input: number) => void;

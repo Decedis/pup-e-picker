@@ -494,7 +494,7 @@
       "name": "sth",
       "description": "sth",
       "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 164
     },
     {
@@ -517,6 +517,13 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": false,
       "id": 167
+    },
+    {
+      "name": ";eusntkhsnkthu",
+      "description": "anutahoeusntaeho",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 168
     }
   ]
 }

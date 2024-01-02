@@ -1,32 +1,28 @@
 // you can use `ReactNode` to add a type to the children prop
-import { Component, ReactNode } from "react";
+import { Component, Dispatch, ReactNode, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import { ActiveComponent, Dog } from "../types";
 
-type ClassProps = {
+type TClassSectionProps = {
   favoritedDogs: Dog[];
   notFavoritedDogs: Dog[];
-  setActiveComponent: (input: ActiveComponent) => void;
+  setActiveComponent: Dispatch<SetStateAction<ActiveComponent>>;
   activeComponent: ActiveComponent;
   children: ReactNode;
 };
-type ClassState = {
-  activeComponent: ActiveComponent;
-};
 
-export class ClassSection extends Component<ClassProps, ClassState> {
-  state: ClassState = {
-    activeComponent: "all",
-  };
-
+export class ClassSection extends Component<TClassSectionProps, {}> {
   render() {
-    const { favoritedDogs, notFavoritedDogs, children } = this.props;
-    const { activeComponent } = this.state;
+    const {
+      favoritedDogs,
+      notFavoritedDogs,
+      setActiveComponent,
+      activeComponent,
+      children,
+    } = this.props;
 
     const componentSwitcher = (target: ActiveComponent) => {
-      this.setState((lastVal) => ({
-        activeComponent: lastVal.activeComponent === target ? "all" : target,
-      }));
+      setActiveComponent((lastVal) => (lastVal === target ? "all" : target));
     };
     const activeStyle = (target: ActiveComponent) => {
       return activeComponent === target ? `selector active` : `selector`;
