@@ -73,10 +73,9 @@ export class ClassApp extends Component {
         <ClassSection
           favoritedDogs={favoritedDogs}
           notFavoritedDogs={notFavoritedDogs}
-          setActiveComponent={(active: SetStateAction<ActiveComponent>) =>
+          setActiveComponent={(active: ActiveComponent) =>
             this.setState({
-              activeComponent:
-                typeof active === "function" ? active(activeComponent) : active,
+              activeComponent: active,
             })
           }
           activeComponent={activeComponent}

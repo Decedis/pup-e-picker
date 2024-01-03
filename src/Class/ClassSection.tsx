@@ -6,7 +6,7 @@ import { ActiveComponent, Dog } from "../types";
 type TClassSectionProps = {
   favoritedDogs: Dog[];
   notFavoritedDogs: Dog[];
-  setActiveComponent: Dispatch<SetStateAction<ActiveComponent>>;
+  setActiveComponent: (input: ActiveComponent) => void;
   activeComponent: ActiveComponent;
   children: ReactNode;
 };
@@ -22,7 +22,13 @@ export class ClassSection extends Component<TClassSectionProps, {}> {
     } = this.props;
 
     const componentSwitcher = (target: ActiveComponent) => {
-      setActiveComponent((lastVal) => (lastVal === target ? "all" : target));
+      //setActiveComponent((lastVal) => (lastVal === target ? "all" : target));
+      //restructure
+      if (target === activeComponent) {
+        setActiveComponent("all");
+      } else {
+        setActiveComponent(target);
+      }
     };
     const activeStyle = (target: ActiveComponent) => {
       return activeComponent === target ? `selector active` : `selector`;
