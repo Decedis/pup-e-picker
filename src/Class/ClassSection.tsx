@@ -1,5 +1,5 @@
 // you can use `ReactNode` to add a type to the children prop
-import { Component, Dispatch, ReactNode, SetStateAction } from "react";
+import { Component, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ActiveComponent, Dog } from "../types";
 
@@ -21,17 +21,17 @@ export class ClassSection extends Component<TClassSectionProps, {}> {
       children,
     } = this.props;
 
-    const componentSwitcher = (target: ActiveComponent) => {
-      //setActiveComponent((lastVal) => (lastVal === target ? "all" : target));
-      //restructure
+    const toggleActiveComponent = (target: ActiveComponent) => {
       if (target === activeComponent) {
         setActiveComponent("all");
       } else {
         setActiveComponent(target);
       }
     };
-    const activeStyle = (target: ActiveComponent) => {
-      return activeComponent === target ? `selector active` : `selector`;
+    const getActiveStyle = (newActiveComponent: ActiveComponent) => {
+      return activeComponent === newActiveComponent
+        ? `selector active`
+        : `selector`;
     };
 
     return (
@@ -46,9 +46,9 @@ export class ClassSection extends Component<TClassSectionProps, {}> {
           <div className="selectors">
             {/* This should display the favorited count */}
             <div
-              className={activeStyle("favorited")}
+              className={getActiveStyle("favorited")}
               onClick={() => {
-                componentSwitcher("favorited");
+                toggleActiveComponent("favorited");
               }}
             >
               favorited ( {favoritedDogs.length} )
@@ -56,17 +56,17 @@ export class ClassSection extends Component<TClassSectionProps, {}> {
 
             {/* This should display the unfavorited count */}
             <div
-              className={activeStyle("unfavorited")}
+              className={getActiveStyle("unfavorited")}
               onClick={() => {
-                componentSwitcher("unfavorited");
+                toggleActiveComponent("unfavorited");
               }}
             >
               unfavorited ( {notFavoritedDogs.length} )
             </div>
             <div
-              className={activeStyle("create")}
+              className={getActiveStyle("create")}
               onClick={() => {
-                componentSwitcher("create");
+                toggleActiveComponent("create");
               }}
             >
               create dog

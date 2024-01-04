@@ -40,21 +40,36 @@ export class ClassApp extends Component {
         });
     };
     const deleteDog = (id: number) => {
-      Requests.deleteDog(id).then(refetch);
+      this.setState({ isLoading: true });
+      Requests.deleteDog(id)
+        .then(refetch)
+        .finally(() => {
+          this.setState({ isLoading: false });
+        });
     };
     const postDog = (newDog: Omit<Dog, "id">) => {
       this.setState({ isLoading: true });
       return Requests.postDog(newDog)
         .then(refetch)
         .finally(() => {
-          this.setState({ setIsLoading: false });
+          this.setState({ isLoading: false });
         });
     };
     const favoriteDog = (id: number) => {
-      Requests.updateDog(id, { isFavorite: true }).then(refetch);
+      this.setState({ isLoading: true });
+      Requests.updateDog(id, { isFavorite: true })
+        .then(refetch)
+        .finally(() => {
+          this.setState({ isLoading: false });
+        });
     };
     const unFavoriteDog = (id: number) => {
-      Requests.updateDog(id, { isFavorite: false }).then(refetch);
+      this.setState({ isLoading: true });
+      Requests.updateDog(id, { isFavorite: false })
+        .then(refetch)
+        .finally(() => {
+          this.setState({ isLoading: false });
+        });
     };
 
     const filteredDogs = getFilteredDogs({

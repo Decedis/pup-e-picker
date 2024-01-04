@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { dogPictures } from "../dog-pictures";
 import { Dog } from "../types";
-import { Requests } from "../api";
 import toast from "react-hot-toast";
 
 const defaultSelectedImage = dogPictures.BlueHeeler;
@@ -34,7 +33,7 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
     const { isLoading, postDog } = this.props;
     const { newDog } = this.state;
 
-    const disableCondition =
+    const shouldDisable =
       isLoading || newDog.description === "" || newDog.name === "";
 
     return (
@@ -97,7 +96,7 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
               },
             });
           }}
-          disabled={disableCondition}
+          disabled={shouldDisable}
         >
           {Object.entries(dogPictures).map(([label, pictureValue]) => {
             return (
@@ -107,7 +106,7 @@ export class ClassCreateDogForm extends Component<ClassProps, ClassState> {
             );
           })}
         </select>
-        <input type="submit" value="submit" disabled={disableCondition} />
+        <input type="submit" value="submit" disabled={shouldDisable} />
       </form>
     );
   }

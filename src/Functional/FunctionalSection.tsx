@@ -19,11 +19,13 @@ export const FunctionalSection = ({
   activeComponent,
   children,
 }: TFunctionalSectionProps) => {
-  const componentSwitcher = (target: ActiveComponent) => {
+  const toggleActiveComponent = (target: ActiveComponent) => {
     setActiveComponent((lastVal) => (lastVal === target ? "all" : target));
   };
-  const activeStyle = (target: ActiveComponent) => {
-    return activeComponent === target ? `selector active` : `selector`;
+  const getActiveStyle = (newActiveComponent: ActiveComponent) => {
+    return activeComponent === newActiveComponent
+      ? `selector active`
+      : `selector`;
   };
 
   return (
@@ -36,9 +38,9 @@ export const FunctionalSection = ({
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={activeStyle("favorited")}
+            className={getActiveStyle("favorited")}
             onClick={() => {
-              componentSwitcher("favorited");
+              toggleActiveComponent("favorited");
             }}
           >
             favorited ( {favoritedDogs.length} )
@@ -46,17 +48,17 @@ export const FunctionalSection = ({
 
           {/* This should display the unfavorited count */}
           <div
-            className={activeStyle("unfavorited")}
+            className={getActiveStyle("unfavorited")}
             onClick={() => {
-              componentSwitcher("unfavorited");
+              toggleActiveComponent("unfavorited");
             }}
           >
             unfavorited ( {notFavoritedDogs.length} )
           </div>
           <div
-            className={activeStyle("create")}
+            className={getActiveStyle("create")}
             onClick={() => {
-              componentSwitcher("create");
+              toggleActiveComponent("create");
             }}
           >
             create dog

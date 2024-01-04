@@ -44,7 +44,12 @@ export function FunctionalApp() {
       });
   };
   const deleteDog = (id: number) => {
-    Requests.deleteDog(id).then(refetch);
+    setIsLoading(true);
+    Requests.deleteDog(id)
+      .then(refetch)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
   const postDog = (newDog: Omit<Dog, "id">) => {
     setIsLoading(true);
@@ -55,10 +60,20 @@ export function FunctionalApp() {
       });
   };
   const favoriteDog = (id: number) => {
-    Requests.updateDog(id, { isFavorite: true }).then(refetch);
+    setIsLoading(true);
+    Requests.updateDog(id, { isFavorite: true })
+      .then(refetch)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
   const unFavoriteDog = (id: number) => {
-    Requests.updateDog(id, { isFavorite: false }).then(refetch);
+    setIsLoading(true);
+    Requests.updateDog(id, { isFavorite: false })
+      .then(refetch)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {

@@ -32,14 +32,14 @@
       "name": "Seth",
       "image": "/assets/chihuahua.avif",
       "description": "noisily Executive Lock Granite South Metrics Country",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 8
     },
     {
       "name": "Andy",
       "image": "/assets/boxer.png",
       "description": "Gasoline now transmit black BMX Cuban Oklahoma ubiquitous",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 9
     },
     {
@@ -524,6 +524,27 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": true,
       "id": 168
+    },
+    {
+      "name": "snth",
+      "description": "snth",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 169
+    },
+    {
+      "name": "snth",
+      "description": "snth",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 170
+    },
+    {
+      "name": "hhh",
+      "description": "hhhsnth",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": false,
+      "id": 171
     }
   ]
 }
