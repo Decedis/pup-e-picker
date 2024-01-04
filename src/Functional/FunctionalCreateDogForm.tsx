@@ -21,7 +21,7 @@ export const FunctionalCreateDogForm = ({
 }) => {
   const [newDog, setNewDog] = useState<Omit<Dog, "id">>(defaultDog);
 
-  const disableCondition =
+  const shouldDisable =
     isLoading || newDog.description === "" || newDog.name === "";
 
   return (
@@ -72,6 +72,7 @@ export const FunctionalCreateDogForm = ({
         onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
           setNewDog({ ...newDog, image: e.target.value })
         }
+        disabled={shouldDisable}
       >
         {Object.entries(dogPictures).map(([label, pictureValue]) => {
           return (
@@ -81,7 +82,7 @@ export const FunctionalCreateDogForm = ({
           );
         })}
       </select>
-      <input type="submit" disabled={disableCondition} />
+      <input type="submit" disabled={shouldDisable} />
     </form>
   );
 };
